@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block head %}
+	{{ super() }}
+	<style>
+main .btn{
+	font-size: 200%;
+}
+	</style>
+{% endblock %}
+
+{% block content %}
+<h1>Welcome to Auctionata!</h1>
+<br/>
+<br/>
+<br/>
+<br/>
+<p align='center'>
+<!--<button type='button' class='btn btn-primary'>Start ▶</button>-->
+<a href='/auction_room' class='btn btn-primary'>Ready to Bid ▶</a>
+</p>
+
+{% endblock %}
+
