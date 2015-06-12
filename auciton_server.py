@@ -18,22 +18,24 @@ def welcome():
     return render_template('welcome_page.html')
 
 @app.route('/auction_list')
-def room(step):
+class AuctionTable():
+    image = 0
+    title = 0
+    start_price = 0
 
+def room(step):
     # Render the auction room page
-    return render_template('auction_list.html', step=step, **args)
+    table = AuctionTable()
+    return render_template('auction_list.html', table)
 
 @app.route('/single_item/<item_num>')
 def shows():
     """
-    Give the user the results of the quiz
+    Given the user the detailed info of an item
     """
-
     user = None
-    migros.SavePreferences( user, session['question_list'], session['answers'] )
-    x = migros.PersonalityTest( session['question_list'], session['answers'] )
 
-    return render_template('results.html', **args)
+    return render_template('single_item.html')
 
 if __name__ == '__main__':
     app.run()

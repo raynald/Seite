@@ -9,15 +9,45 @@ main .btn{
 {% endblock %}
 
 {% block content %}
-<h1>Welcome to Auctionata!</h1>
+<div class="hero-unit">
+    <h3>Welcome to PyAuc!</h3> Please use the menu bar at the top to navigate between the main sections fo this website.
+</div>
+
+<table class='table table-striped'>
+    <tr>
+        <td><a href='/'>Home</a></td>
+        <td>Show Welcome Page!</td>
+    </tr>
+    <tr>
+        <td><a href='{% url project %}'>Auction Room</a></td>
+    </tr>
+    <tr>
+        <td><a href='{% url news %}'>What is New</a></td>
+    </tr>
+    <tr>
+        <td><a href='{% url aboutus %}'>About Us</a></td>
+    </tr>
 <br/>
 <br/>
 <br/>
 <br/>
+
 <p align='center'>
 <!--<button type='button' class='btn btn-primary'>Start ▶</button>-->
 <a href='/auction_room' class='btn btn-primary'>Ready to Bid ▶</a>
 </p>
 
-{% endblock %}
+<h3>
+    Recent Activities of Bidder:
+</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>When</th>
+            <th>Who</th>
+            <th>What</th>
+        </tr>
+    </thead>
+</table>
 
+{% endblock %}
