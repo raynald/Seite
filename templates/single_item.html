@@ -1,37 +1,25 @@
 {% extends "base.html" %}
+{% block title %}
+Product: '{{ item['name'] }}'
+{% endblock %}
 {% block head %}
 	{{ super() }}
-	<style>
-main .btn{
-	font-size: 200%;
-}
-
-.personality img {
-	width: 200px;
-	height: auto;
-	margin: 0 0 0 3em;
-}
-
-.personality {
-	padding: 2em;
-}
-
-.personality p {
-	margin: 0 220px 0 80px;
-}
-
-.numbered {
-	font-size: 600%;
-	font-weight: bold;
-	float: left;
-	color: #999;
-	position: relative;
-	top: -0.4em;
-	width: 80px;
-}
-	</style>
 {% endblock %}
 
 {% block content %}
+<div class="img-teaser">
+    <div class="container" style="text-align: center;">
+    <img src="'{{ item['info']['image']['large'] }}' />
+    </div>
+</div>
 
+<div class="container">
+    <h3>Description</h3>
+</div>
+<div class="row">
+    <div class=span6">
+        <h3>Current Price</h3>
+        <p> {{ item['price'] }}</p>
+    </div>
+</div>
 {% endblock %}

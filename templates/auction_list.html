@@ -1,37 +1,31 @@
 {% extends "base.html" %}
-{% block head %}
-	{{ super() }}
-	<style>
-		#question_table td {
-		}
-		#question_table {
-			width: 100%;
-			border-spacing: 10px;
-			border-collapse: separate;
-		}
-                .left_col, .right_col, .middle_col {
-                    width: 33%;
-                }
-		.left_col button {
-			float: left;
-			font-size: 300%;
-		}
-		.right_col button {
-			float: right;
-			font-size: 300%;
-		}
-		.middle_col {
-			font-size: 300%;
-			font-weight: bold;
-			width: 100px;
-			text-align: center;
-		}
-	</style>
-{% endblock %}
+{% block title %}Auctions{% endblock %}
+{% block head %}{{ super() }}{% endblock %}
 
 {% block content %}
-<p>
-{% render_table request table%}
-</p>
+<table id="auctable" class="display" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Current Price</th>
+        </tr>
+    </thead>
+    <tbody>
+       {% for item in table %}
+        <tr class="auctions">
+            <td><img src="{{ item['info']['image']['small'] }}" align="middle"></td>
+            <td><a href="/single_item/{{ item['id'] }}">{{ item['name'] }}</a></td>
+            <td><p>{{ item['price'] }}</p></td>
+        </tr>
+       {%endfor%}
+    </tbody>
+</table>
+<script>
+    $(document).ready(function() {
+        var t = $('#auctable').DataTable(
+        );
+    });
+</script>
 {% endblock %}
 

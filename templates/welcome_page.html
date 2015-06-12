@@ -10,23 +10,17 @@ main .btn{
 
 {% block content %}
 <div class="hero-unit">
-    <h3>Welcome to PyAuc!</h3> Please use the menu bar at the top to navigate between the main sections fo this website.
+    <h1>Welcome to Demo!</h1> Please use the menu bar at the top to navigate between the main sections fo this website.
 </div>
 
 <table class='table table-striped'>
     <tr>
         <td><a href='/'>Home</a></td>
-        <td>Show Welcome Page!</td>
+        <td><a href='/auction_room'>Auction Room</a></td>
+        <td><a href='/news'>What is New</a></td>
+        <td><a href='/about_us'>About Us</a></td>
     </tr>
-    <tr>
-        <td><a href='{% url project %}'>Auction Room</a></td>
-    </tr>
-    <tr>
-        <td><a href='{% url news %}'>What is New</a></td>
-    </tr>
-    <tr>
-        <td><a href='{% url aboutus %}'>About Us</a></td>
-    </tr>
+    </table>
 <br/>
 <br/>
 <br/>
@@ -40,14 +34,5 @@ main .btn{
 <h3>
     Recent Activities of Bidder:
 </h3>
-<table class="table">
-    <thead>
-        <tr>
-            <th>When</th>
-            <th>Who</th>
-            <th>What</th>
-        </tr>
-    </thead>
-</table>
 
 {% endblock %}
