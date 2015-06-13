@@ -1,25 +1,45 @@
 {% extends "base.html" %}
 {% block title %}
-Product: '{{ item['name'] }}'
 {% endblock %}
 {% block head %}
 	{{ super() }}
 {% endblock %}
 
 {% block content %}
+<div class="hero-unit">
+    <h1>Product: '{{ item['name'] }}'</h1>
+</div>
+
+<table class='table table-striped'>
+    <tr>
+        <td><a href='/'>Home</a></td>
+        <td><a href='/auction_room'>Auction Room</a></td>
+        <td><a href='/news'>What is New</a></td>
+        <td><a href='/about_us'>About Us</a></td>
+    </tr>
+    </table>
+
 <div class="img-teaser">
     <div class="container" style="text-align: center;">
-    <img src="'{{ item['info']['image']['large'] }}' />
+        <img src="{{ item['info']['image']['large'] }}"/>
     </div>
 </div>
 
 <div class="container">
     <h3>Description</h3>
 </div>
+<script>
+    function has(elem) {
+        var v = document.getElementById("input_bid").value;
+        window.location.href="/update_bid/{{ item['id'] }}," + String(v);
+    }
+</script>
 <div class="row">
     <div class=span6">
-        <h3>Current Price</h3>
-        <p> {{ item['price'] }}</p>
+        <h4>Current Price: {{ item['health'] }}</h4>
+        <p>Please input your bid below!</p>
+        <input type="text" class="form-control" id="input_bid">
+        <input type="submit" onclick="has(this)"/>
     </div>
 </div>
 {% endblock %}

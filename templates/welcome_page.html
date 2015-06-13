@@ -10,7 +10,7 @@ main .btn{
 
 {% block content %}
 <div class="hero-unit">
-    <h1>Welcome to Demo!</h1> Please use the menu bar at the top to navigate between the main sections fo this website.
+    <h1>Welcome to Demo!</h1>
 </div>
 
 <table class='table table-striped'>
@@ -27,12 +27,15 @@ main .btn{
 <br/>
 
 <p align='center'>
-<!--<button type='button' class='btn btn-primary'>Start ▶</button>-->
 <a href='/auction_room' class='btn btn-primary'>Ready to Bid ▶</a>
 </p>
 
 <h3>
-    Recent Activities of Bidder:
+    Recent Activities of bidders:
 </h3>
+    <table class='table table-striped'>
+        <tr><td>User 2435325 put 4.52 on item Brot</td></tr>
+        <tr><td>User soda put 4.52 on item Watch</td></tr>
+    </table>
 
 {% endblock %}

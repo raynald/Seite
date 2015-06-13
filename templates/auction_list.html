@@ -3,20 +3,39 @@
 {% block head %}{{ super() }}{% endblock %}
 
 {% block content %}
+<div class="hero-unit">
+    <h1>Current auctions</h1>
+</div>
+
+<table class='table table-striped'>
+    <tr>
+        <td><a href='/'>Home</a></td>
+        <td><a href='/auction_room'>Auction Room</a></td>
+        <td><a href='/news'>What is New</a></td>
+        <td><a href='/about_us'>About Us</a></td>
+    </tr>
+    </table>
+
 <table id="auctable" class="display" cellspacing="0" width="100%">
     <thead>
         <tr>
             <th>Image</th>
             <th>Name</th>
+            <th>Description</th>
             <th>Current Price</th>
+            <th>Time Left</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
        {% for item in table %}
         <tr class="auctions">
-            <td><img src="{{ item['info']['image']['small'] }}" align="middle"></td>
+            <td><img src="{{ item['image']['small'] }}" align="middle"></td>
             <td><a href="/single_item/{{ item['id'] }}">{{ item['name'] }}</a></td>
+            <td>{{ item['description'] }}</td>
             <td><p>{{ item['price'] }}</p></td>
+            <td>14 Hours</td>
+            <td><a href="/single_item/{{ item['id'] }}">I want to bid!</a></td>
         </tr>
        {%endfor%}
     </tbody>

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Auctions{% endblock %}
+{% block head %}{{ super() }}{% endblock %}
+
+{% block content %}
+<div class="hero-unit">
+    <h1>Contact Us</h1>
+</div>
+
+<table class='table table-striped'>
+    <tr>
+        <td><a href='/'>Home</a></td>
+        <td><a href='/auction_room'>Auction Room</a></td>
+        <td><a href='/news'>What is New</a></td>
+        <td><a href='/about_us'>About Us</a></td>
+    </tr>
+    </table>
+
+<h3> Congratulations, your bid has been approved.</h3>
+<a href="/single_item/{{ item['id'] }}">Back to the item</a>
+{% endblock %}
+
