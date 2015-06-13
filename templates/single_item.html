@@ -30,8 +30,14 @@
 </div>
 <script>
     function has(elem) {
-        var v = document.getElementById("input_bid").value;
-        window.location.href="/update_bid/{{ item['id'] }}," + String(v);
+        var v = Number(document.getElementById("input_bid").value);
+        var cur = Number({{ item['health'] }});
+        if(cur>=v) {
+            window.alert("Please bid higher than current price");
+        }
+        else {
+            window.location.href="/update_bid/{{ item['id'] }}," + String(v);
+        }
     }
 </script>
 <div class="row">

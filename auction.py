@@ -4,15 +4,13 @@ import pymongo as mg
 
 def GetAll():
     """
-    image, price, name
+    Get all the "image, price, name, ..."
     """
     coll = mg.MongoClient()['migros']['lebensmittel']
-    item_num = 291
     hasImage = coll.find({'info.image.medium':{'$exists':True}})
     _table = list()
-    for iter in xrange(item_num):
+    for iter in xrange(hasImage.count()):
         item = hasImage.next()
-        # item.update({'price': round(random.uniform(2, 50), 2)})
         info = dict()
         info["id"] = item["id"]
         info["image"] = item['info']['image']
@@ -23,12 +21,17 @@ def GetAll():
     return _table
 
 def GetByID(id):
+    """
+    Get the product by its ID
+    """
     col = mg.MongoClient()['migros']['lebensmittel']
     cursor = col.find({'id': int(id)})
     for item in cursor:
         return item
 
 def PlaceABid(id, price):
+    """
+    Place a bid on the product
+    """
     col = mg.MongoClient()['migros']['lebensmittel']
-    cursor = col.update({"id": int(id)}, {'$set': {'health': price}}, False)
-    print cursor
+    col.update({"id": int(id)}, {'$set': {'health': price}}, False)
